@@ -31,6 +31,7 @@ loginParams = {
 }
 # Create the websocket object
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client.settimeout(20)
 
 r = requests.post("https://api.spanet.net.au/api/MemberLogin", data=loginParams)
 if (r.status_code == 200 and r.json()["success"]):
